@@ -1,12 +1,25 @@
 #!/bin/bash
+clear
+echo -e "\nIn this game you decide the fate an adventurer that has been out dungeon crawling. Your adventurer is a seasoned dungeon looter and has plenty of experience fighting mythical creatures and escaping dangerous traps. Though smaller than the average Human, your adventurer can still take on some big problems. It is up to you to get the adventerer through the rest of this dungeon safely in order to win the game.\n"
+sleep 10
+echo -e "\nThe story starts mid dungeon as your adventurer is creeping through a corridor, trying to keep a look out for any traps. Suddenly, they step on a preassure plate, casuing it to sink into the floor. Flames burst out of the corridor behind them, filling it quickly. They sprint forward, trying to get to the door at then end of the corridor, in hopes to make it there before the flames can burn them to a crisp. The adventurer is running as fast as they can and can start to feel the heat of the fire on their back. They lunge in the door and close it hastily behind them, as a few flames manage to make it through.\n"
+sleep 10
+echo -e "\nThis is where you take control of the adventurer. Here are a few tips for the game, that way you get the correct results and have a fun time playing."
+sleep 5
+echo -e "\n1. Type your answers exactly as promted. This game uses if/else statements and if you dont type your answer correctly, then you wont get the \n"
+echo -e "\n2. If you pick an answer and it results poorly, don't worry, you'll have an opportunity to restart."
+echo -e "\n3. This is what i could come up with for a story, so i hope you have a great time playing!"
+sleep 10
+
 function name() {
-echo -e "\nWhat is your name adventurer?\n"
+echo -e "\nWhat is the name of your adventurer?\n"
 read name
-echo -e "\nYou entered $name, is that correct?"
+echo -e "\nYou entered $name, is that correct?(y/n)\n"
 read answer
-if [ $answer = 'y' ]
+if [ $answer = 'y' -o $answer = 'yes' ]
 then
-echo -e "\nNice to meet you $name"
+echo -e "\n$name is ready for their adventure!\n"
+sleep 3
 begin
 else
 name
@@ -15,18 +28,17 @@ fi
 
 
 #My Adventure Game
-clear
 function begin() {
 clear
 echo
-echo -e "\n$name you arrive in a room with two doors, each labeled with a number. You can see that in the room labeled door 1, there is an unreasonable amount of stuff in there. Behind door 2, you see two sets of stairs, which door would you like to go through? (1/2)\n"
+echo -e "\n$name arrives to a room with two doors, each labeled with a number. $name can see that in the room labeled door 1, there is an unreasonable amount of stuff in there. Behind door 2, there are two sets of stairs, which door would you like $name to go through? (1/2)\n"
 read answer
-if [ $answer = "1" ]
+if [ $answer = '1' ]
 then
-echo -e "\nYou go though door 1\n"
+echo -e "\n$name goes through door 1\n"
 door1
 else
-echo -e "\nYou go through door 2\n"
+echo -e "\n$name goes through door 2\n"
 door2
 fi
 }
@@ -34,13 +46,13 @@ fi
 
 #door1
 function door1() {
-echo -e "\nThere is stuff piled high to the ceiling. On the far side of the room you see a door, but it is blocked by something that looks heavy. Would you like to go back to door 2? Or would you like to search for something to help you move the object? (search/2)\n"
+echo -e "\nThere is stuff piled high to the ceiling. On the far side of the room you see a door, but it is blocked by something that looks heavy. Would you like $name to go back through door 2? Or would you like them to search for something to help them move the object? (search/2)\n"
 read answer
 if [ $answer = '2' ]
 then
 door2
 else
-echo -e "\nYou search for something to move the heavy object. You find a pipe under some boxes that you grab and causes an avalanche in the room. You are crushed by all the debris, killing you instantly.\n"
+echo -e "\n$name searches for something to move the heavy object. $name finds a pipe under some boxes that they grab, but causes an avalanche in the room. $name is crushed by all the debris, killing them instantly.\n"
 youlose
 fi
 }
@@ -48,14 +60,14 @@ fi
 
 #door2
 function door2() {
-echo -e "\nYou arive at two sets of stairs. The stairs leading up have a soft glowing light radiating from the from it, and you can hear a soft chatter between a few individuals. For the stairs going down, there is no light, but there is a torch hanging on the wall that you could take with you. Would you like to go up or down? (up/down)\n"
+echo -e "\n$name The stairs leading up have a soft glowing light radiating from it, and you can hear a soft chatter between a few individuals. The stairs leading down are pitch black and you can't see a bottom, but there is a torch hanging on the wall that $name could take with them. Would you like them to go up or down? (up/down)\n"
 read answer
 if [ $answer = "up" ]
 then
-echo -e "\nYou take the stairs leading up.\n"
+echo -e "\n$name takes the stairs leading up.\n"
 upstairs
 else
-echo -e "\nYou grab the torch and take the stairs leading down.\n"
+echo -e "\n$name grabs the torch and takes the stairs leading down.\n"
 downstairs
 fi                 
 }
@@ -63,14 +75,14 @@ fi
 
 #upstairs
 function upstairs() {
-echo -e "\nAfter going up the stairs, you come accross two green creatures talking to each other. They look tattered and battle hardened, with scars all over. They are Orcs! One of them notices you and shouts, 'Oi! 'oo is this lot?' They both stand and face you, grasping raggedy swords. 'I 'ont know, but 'e ain't suppose' tuh be 'ere!' They both start to charge you ready to kill! Quick, do you try to counter or do you run away? (counter/run)\n"
+echo -e "\nAfter going up the stairs, $name comes accross two green creatures talking to each other. They look tattered and battle hardened, with scars all over. They are Orcs! One of them notices you and shouts, 'Oi! 'oo is this lot?' They both stand and face you, grasping raggedy swords. 'I 'ont know, but 'e ain't suppose' tuh be 'ere!' They both start to charge $name, ready to kill! Quick, should $name counter attack or run away? (counter/run)\n"
 read answer
 if [ $answer = 'counter' ]
 then
-echo -e "\nYou try to counter attack the Orcs! You knock one to the ground but the other grabs you. The one on the ground gets up and says 'im 'unna gut you like a fish!'\n"
+echo -e "\n$name counter attacks the Orcs!\n"
 counter
 else
-echo -e "\nYou try running but they already had a start on you. They plung their swords into your back and let you bleed slowly. 'this one'll make a noice meal!' They chop you up and use you for a stew.\n"
+echo -e "\n$name tries to run but the orcs already had a start on them. They plung their swords into $name's back and they slowly bleed out. 'This one'll make a nice meal!' They chop $name up and use them for a stew.\n"
 youlose
 fi
 }
@@ -78,29 +90,28 @@ fi
 
 #counter
 function counter() {
-echo "Would you like to try to kick the ork, or struggle free?(kick/struggle)"
+echo -e "\nThey knock one to the ground but the other grabs them. The orc on the ground gets up and says to $name 'im 'unna gut you like a fish!' Should $name try to kick the ork, or struggle free?(kick/struggle)\n"
 read answer
-if [$answer = 'kick' ]
+if [ $answer = 'kick' ]
 then
-echo "You kick the orc in front of you!"
-kickorc
+echo -e "\n$name kicks the orc in front of them!\n"
+kick
 else
-echo "Strugling only makes the orc holding you tightens his grasp."
 struggle
 fi
 }
 
 
 #kickorc
-function kickork() {
-echo "You and the orc holding you tumble to the ground and he loses his grasp of you. As you gain your bearing, you see one of their swords in front of you. You could try to grab the sword and fight or you can try to run away again. (grab/run)"
+function kick() {
+echo -e "\n$name and the orc holding them tumble to the ground, losing his grasp of $name. As $name gains their bearing, they see one of the orc's swords in front of them. Do you want $name to grab the sword and fight or should they try to run away while they have the best of the orcs. (grab/run)\n"
 read answer
 if [ $answer = 'grab' ]
 then
-echo "You grab the sword and prepare for a fight."
+echo -e "\n$name lunges for the sword!\n"
 grabsword
 else
-echo ""
+echo -e "\n\n"
 youlose
 fi
 }
@@ -108,75 +119,39 @@ fi
 
 #grabsword
 function grabsword() {
-echo "Taking up the sword, you face the orcs. One of them grabs a sword and the other pulls a knife from a sheath behind their back. The charge you but you're ready."
+echo "Taking up the sword, you face the orcs. One of them grabs a sword and the other pulls a knife from a sheath behind their back. They charge you but you're ready. $name slash the first orc across the chest and he falls to the floor in pain. The second or swings at you with his knife but you dodge back, causing him to go off balance. $name swipe at his neck, toppling his head to the floor. Suddenly, you hear a long deep horn. The orc on the floor has called for backup. $name finish the job, but you hear many footsteps quickly apporaching. $name, $name can try to un, but dont know how close the approaching orcs are, or you could stay and try to hold them off for as long as possible. What would you like to do? (run/fight) "
 read answer
-if [ $answer = 'kill']
+if [ $answer = 'run' ]
 then
-echo
-killthem
+#player runs and goes downstairs
+echo -e "\n$name goes down the stairs they came up. they can hear orcs in the room they once started in. There is nowhere else to go other than to take the stairs leading into the unknown. $name grabs the torch and starts to head down."
+downstairs
 else
-#gettingtricked
-echo ""
+#fighting to last breath
+echo -e "\n$name readies their sword and faces the stairs from which they came from."
 youlose
 fi
 }
 
 
 
-#struggle free
+#struggle
 function struggle() {
-echo "you attempt to struggle free but there is no use, the orc holding you is stronger."
-read answer
-if [ $answer = 'kick' ]
-then
-echo ""
-kickork
-else
-echo ""
-youlose
-fi
-}
-
-
-#killorcs
-function killorcs() {
-echo ""
-read answer
-if [ $answer = 'loot']
-then
-echo
-loot
-else
-echo ""
-getout
-fi
-}
-
-
-#get out fast
-function getout() {
-echo ""
-read answer
-if [$answer = 'y']
-then
-echo ""
-else
-echo ""
-youlose
-fi
+echo -e "\n$name attempt to struggle free but there is no use, the orc holding you is stronger.\n"
+counter
 }
 
 
 #downstairs
 function downstairs() {
-echo -e "\nAfter traveling for what seemed like miles down the stairs, you finally reached the bottom to what seems to be a long dark hallway. As you veture forth, you come to a fork in the hall. $name, would you like to travel left or right?(left/right)"
+echo -e "\nAfter traveling for what seemed like miles down the stairs, $name finally reached the bottom of the stairs into what seems to be a long dark hallway. As they veture forth, $name comes to a fork in the hall. Would you like $name to travel left or right?(left/right)"
 read answer
 if [ answer = 'left' ]
 then
-echo -e "\nYou have decided to venture left."
+echo -e "\n$name travels left."
 lefthall
 else
-echo -e "\nYou decide to travel right."
+echo -e "\n$name travesl right."
 righthall
 fi
 }
@@ -184,7 +159,7 @@ fi
 
 #lefthall
 function lefthall() {
-echo
+echo -e ""
 read answer
 if [ $answer = 'jump']
 then
@@ -210,10 +185,10 @@ youlose
 fi
 }
 
-#You lose screen
+#$name lose screen
 function youlose() {
 sleep 8
-echo -e "\nYou Lose! Would you like to play again? (y/n)\n"
+echo -e "\n$name Lose! Would you like to play again? (y/n)\n"
 read answer
 if [ $answer = 'y' ]
 then

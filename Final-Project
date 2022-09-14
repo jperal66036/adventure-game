@@ -1,0 +1,228 @@
+#!/bin/bash
+function name() {
+echo -e "\nWhat is your name adventurer?\n"
+read name
+echo -e "\nYou entered $name, is that correct?"
+read answer
+if [ $answer = 'y' ]
+then
+echo -e "\nNice to meet you $name"
+begin
+else
+name
+fi
+}
+
+
+#My Adventure Game
+clear
+function begin() {
+clear
+echo
+echo -e "\n$name you arrive in a room with two doors, each labeled with a number. You can see that in the room labeled door 1, there is an unreasonable amount of stuff in there. Behind door 2, you see two sets of stairs, which door would you like to go through? (1/2)\n"
+read answer
+if [ $answer = "1" ]
+then
+echo -e "\nYou go though door 1\n"
+door1
+else
+echo -e "\nYou go through door 2\n"
+door2
+fi
+}
+
+
+#door1
+function door1() {
+echo -e "\nThere is stuff piled high to the ceiling. On the far side of the room you see a door, but it is blocked by something that looks heavy. Would you like to go back to door 2? Or would you like to search for something to help you move the object? (search/2)\n"
+read answer
+if [ $answer = '2' ]
+then
+door2
+else
+echo -e "\nYou search for something to move the heavy object. You find a pipe under some boxes that you grab and causes an avalanche in the room. You are crushed by all the debris, killing you instantly.\n"
+youlose
+fi
+}
+
+
+#door2
+function door2() {
+echo -e "\nYou arive at two sets of stairs. The stairs leading up have a soft glowing light radiating from the from it, and you can hear a soft chatter between a few individuals. For the stairs going down, there is no light, but there is a torch hanging on the wall that you could take with you. Would you like to go up or down? (up/down)\n"
+read answer
+if [ $answer = "up" ]
+then
+echo -e "\nYou take the stairs leading up.\n"
+upstairs
+else
+echo -e "\nYou grab the torch and take the stairs leading down.\n"
+downstairs
+fi                 
+}
+
+
+#upstairs
+function upstairs() {
+echo -e "\nAfter going up the stairs, you come accross two green creatures talking to each other. They look tattered and battle hardened, with scars all over. They are Orcs! One of them notices you and shouts, 'Oi! 'oo is this lot?' They both stand and face you, grasping raggedy swords. 'I 'ont know, but 'e ain't suppose' tuh be 'ere!' They both start to charge you ready to kill! Quick, do you try to counter or do you run away? (counter/run)\n"
+read answer
+if [ $answer = 'counter' ]
+then
+echo -e "\nYou try to counter attack the Orcs! You knock one to the ground but the other grabs you. The one on the ground gets up and says 'im 'unna gut you like a fish!'\n"
+counter
+else
+echo -e "\nYou try running but they already had a start on you. They plung their swords into your back and let you bleed slowly. 'this one'll make a noice meal!' They chop you up and use you for a stew.\n"
+youlose
+fi
+}
+
+
+#counter
+function counter() {
+echo "Would you like to try to kick the ork, or struggle free?(kick/struggle)"
+read answer
+if [$answer = 'kick' ]
+then
+echo "You kick the orc in front of you!"
+kickorc
+else
+echo "Strugling only makes the orc holding you tightens his grasp."
+struggle
+fi
+}
+
+
+#kickorc
+function kickork() {
+echo "You and the orc holding you tumble to the ground and he loses his grasp of you. As you gain your bearing, you see one of their swords in front of you. You could try to grab the sword and fight or you can try to run away again. (grab/run)"
+read answer
+if [ $answer = 'grab' ]
+then
+echo "You grab the sword and prepare for a fight."
+grabsword
+else
+echo ""
+youlose
+fi
+}
+
+
+#grabsword
+function grabsword() {
+echo "Taking up the sword, you face the orcs. One of them grabs a sword and the other pulls a knife from a sheath behind their back. The charge you but you're ready."
+read answer
+if [ $answer = 'kill']
+then
+echo
+killthem
+else
+#gettingtricked
+echo ""
+youlose
+fi
+}
+
+
+
+#struggle free
+function struggle() {
+echo "you attempt to struggle free but there is no use, the orc holding you is stronger."
+read answer
+if [ $answer = 'kick' ]
+then
+echo ""
+kickork
+else
+echo ""
+youlose
+fi
+}
+
+
+#killorcs
+function killorcs() {
+echo ""
+read answer
+if [ $answer = 'loot']
+then
+echo
+loot
+else
+echo ""
+getout
+fi
+}
+
+
+#get out fast
+function getout() {
+echo ""
+read answer
+if [$answer = 'y']
+then
+echo ""
+else
+echo ""
+youlose
+fi
+}
+
+
+#downstairs
+function downstairs() {
+echo -e "\nAfter traveling for what seemed like miles down the stairs, you finally reached the bottom to what seems to be a long dark hallway. As you veture forth, you come to a fork in the hall. $name, would you like to travel left or right?(left/right)"
+read answer
+if [ answer = 'left' ]
+then
+echo -e "\nYou have decided to venture left."
+lefthall
+else
+echo -e "\nYou decide to travel right."
+righthall
+fi
+}
+
+
+#lefthall
+function lefthall() {
+echo
+read answer
+if [ $answer = 'jump']
+then
+echo ""
+jump
+else
+echo ""
+youlose
+fi
+}
+
+#righthall
+function righthall() {
+echo
+read answer
+if [$answer = 'crawl']
+then
+echo ""
+crawl
+else
+echo ""
+youlose
+fi
+}
+
+#You lose screen
+function youlose() {
+sleep 8
+echo -e "\nYou Lose! Would you like to play again? (y/n)\n"
+read answer
+if [ $answer = 'y' ]
+then
+begin
+else
+clear
+echo -e "\nThank you for playing!\n"
+fi
+}
+
+
+name

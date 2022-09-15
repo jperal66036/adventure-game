@@ -190,7 +190,7 @@ fi
 #$name lose screen
 function youlose() {
 sleep 8
-echo -e "\nYou Lose! dont worry though, theres only a finie number of outcomes, so youll get to the end eventually. Would you like to play again? (y/n)\n"
+echo -e "\nYou Lose! dont worry though, theres only a finite number of outcomes, so youll get to the end eventually. Would you like to play again? (y/n)\n"
 read answer
 if [ $answer = 'y' ]
 then

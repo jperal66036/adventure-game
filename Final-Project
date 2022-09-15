@@ -48,10 +48,11 @@ fi
 
 #door1
 function left() {
-echo -e "\nThere is stuff piled high to the ceiling. On the far side of the room you see a door, but it is blocked by a cabinet that looks heavy.$name searches for something to move the it and finds a wooden handle that looks like it could wedge the object out of the way, but its also acting as a substitute table leg for a table that has stuff piled on it. Would you like $name to go back through to the other door? Or would you like them to use the handle to wedge the cabinet out of the way? (wedge/goback)\n"
+echo -e "\nThere is stuff piled high to the ceiling. On the far side of the room you see a door, but it is blocked by a cabinet that looks heavy. $name searches for something to move it and finds a wooden handle that looks like it could wedge the object out of the way, but its also acting as a substitute table leg for a table that has stuff piled on it. Would you like $name to go back through to the other door? Or would you like them to use the handle to wedge the cabinet out of the way? (wedge/goback)\n"
 read answer
 if [ $answer = 'goback' ]
 then
+echo -e "\n$name went back through the common room to the room with stairs."
 straight
 else
 echo -e "\n$name grabs the wooden handle from under the table, the sudden shift in weight causes the pile to topple onto $name, killing them instantly.\n"
@@ -121,12 +122,12 @@ fi
 
 #grabsword
 function grabsword() {
-echo "Taking up the sword, $name faces the orcs. One of them grabs a sword while the other pulls a knife from a sheath behind their back. The orcs charge but $name is ready. $name slashes the first orc across the chest and he falls to the floor in pain. The second orc swings at you with his knife but you dodge back, causing him to go off balance. $name swipe at his neck, toppling his head to the floor. Suddenly, you hear a long deep horn. The orc on the floor has called for backup. $name finish the job, but you hear many footsteps quickly apporaching. $name can try to run, but doesn't know how close the approaching orcs are, or they could stay and try to hold them off for as long as possible. What would you like $name to do? (run/fight) "
+echo "Taking up the sword, $name faces the orcs. One of them grabs a sword while the other pulls a knife from a sheath behind their back. The orcs charge but $name is ready. $name slashes the first orc across the chest and he falls to the floor in pain. The second orc swings at $name with his knife but they dodge back, causing te orc to go off balance. $name swipes at his neck, toppling his head to the floor. Suddenly, there was a long deep horn that sounded. The orc on the floor has called for backup. $name finished the job, but there is a sound of many footsteps quickly apporaching. $name can try to run, but doesn't know how close the approaching orcs are, or they could stay and try to hold them off for as long as possible. What would you like $name to do? (run/fight) "
 read answer
 if [ $answer = 'run' ]
 then
 #player runs and goes downstairs
-echo -e "\n$name goes down the stairs they came up. they can hear orcs in the room they once started in. There is nowhere else to go other than to take the stairs leading into the unknown. $name grabs the torch and starts to head down."
+echo -e "\n$name goes down the stairs they came up. They can hear orcs in the room they once started in. There is nowhere else to go other than to take the stairs leading into the unknown. $name grabs the torch and starts to head down."
 downstairs
 else
 #fighting to last breath
@@ -139,14 +140,14 @@ fi
 
 #struggle
 function struggle() {
-echo -e "\n$name attempt to struggle free but there is no use, the orc holding you is stronger.\n"
+echo -e "\n$name attempts to struggle free but there is no use, the orc holding them is stronger.\n"
 counter
 }
 
 
 #downstairs
 function downstairs() {
-echo -e "\nAfter traveling down the dark staircase, $name finally reached the bottom of the stairs into what seems to be a long dark hallway. As they veture forth, $name comes to a fork in the hall. Would you like $name to travel left or right?(left/right)"
+echo -e "\nAfter traveling down the dark staircase, $name finally reached the bottom into what seems to be a long dark hallway. As they veture forth, $name comes to a fork in the hall. Would you like $name to travel left or right?(left/right)"
 read answer
 if [ $answer = 'left' ]
 then

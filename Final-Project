@@ -8,7 +8,6 @@ echo -e "\nThe story starts mid dungeon as your adventurer is creeping through a
 echo -e "\nThis is where you take control of the adventurer. Here are a few tips for the game, that way you get the correct results and have a fun time playing.\n"
 echo -e "\n1. Type your answers exactly as promted. This game uses if/else statements and if you dont type your answer correctly you'll get the wrong results.\n"
 echo -e "\n2. If you pick an answer and it results poorly, don't worry, you'll have an opportunity to restart.\n"
-echo -e "\n3. also remember, no capital letters!\n"
 sleep 20
 name
 }
